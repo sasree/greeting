@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css?family=Aleo");
+
+:root {
+  font-family: "Aleo", sans-serif;
+  --wine-red: #c7375f;
+  --bright-red: #d42d2f;
+  --dark-green: #344d2f;
+  --light-green: #77a047;
+  --gold: #fac57d;
+  --snow: #f0f4f7;
+  --night-blue: #192a56;
+  --light-night: #40739e;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: black;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Thanks Traversy Media for this text background animation tut:
+   https://www.youtube.com/watch?v=lX5LZTWc4f8&t
+*/
+.label {
+  font-size: 2.2rem;
+  background: url("https://res.cloudinary.com/nikita-rudenko/image/upload/v1544906837/stripe_c982eebe592d6c30f2034f5ce80b1fc6.png");
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: moveBg 30s linear infinite;
+}
+
+#labelBackground{
+    font-size: 1rem;
+    background: url("https://res.cloudinary.com/nikita-rudenko/image/upload/v1544906837/stripe_c982eebe592d6c30f2034f5ce80b1fc6.png");
+    /* background-clip: text; */
+    /* -webkit-background-clip: text; */
+    /* color: transparent; */
+    animation: moveBg 30s linear infinite;
+  }
+.greeting {
+  font-size: 2.2rem;
+  color: rgb(255,215,0);
+  background: url("https://res.cloudinary.com/nikita-rudenko/image/upload/v1544906837/stripe_c982eebe592d6c30f2034f5ce80b1fc6.png");
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  /* font-family: 'Inter', sans-serif;
+  font-family: 'The Nautigal', cursive; */
+}
+
+@keyframes moveBg {
+  0% {
+    background-position: 0% 30%;
+  }
+  100% {
+    background-position: 1000% 500%;
+  }
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  user-select: none;
+}
+
+.time {
+  color: #d99c3b;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+}
+
+.time span {
+  padding: 0 14px;
+  font-size: 0.8rem;
+}
+
+.time span div {
+  font-size: 3rem;
+}
+
+@media (max-width: 740px) {
+  .label {
+    font-size: 1.7rem;
+  }
+  .time span {
+    padding: 0 16px;
+    font-size: 0.6rem;
+  }
+  .time span div {
+    font-size: 2rem;
+  }
+}
+.middle-row {
+    padding-top: 10%;
+}
+.switch-container {
+  display: flex;
+}
+
+.christmas-label {
+  width: 150px;
+  margin-right: 15px;
+  margin-left: 10px;
+  font-size: 22px;
+  text-align: right;
+  /* color: gold; */
+  background: url("https://res.cloudinary.com/nikita-rudenko/image/upload/v1544906837/stripe_c982eebe592d6c30f2034f5ce80b1fc6.png");
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.snow-label {
+  width: 150px;
+  margin-left: 15px;
+  margin-right: 50px;
+  font-size: 22px;
+  text-align: left;
+  /* color: gold; */
+  background: url("https://res.cloudinary.com/nikita-rudenko/image/upload/v1544906837/stripe_c982eebe592d6c30f2034f5ce80b1fc6.png");
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.switch {
+  position: relative;
+  align-self: center;
+  display: inline-block;
+  width: 60px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #DFB722;
+  /* background-color: var(--gold); */
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3.5px;
+  bottom: 3.5px;
+  background-color: var(--snow);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--light-night);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--light-night);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
+}
+
+.slider.round {
+  border-radius: 28px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
